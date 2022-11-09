@@ -12,6 +12,7 @@ const server = http.createServer(function (req, res) {
     res.write("</html>");
     return res.end();
   }
+
   res.setHeader("Content-Type", "text/html");
   res.write("<html>");
   res.write("<head><title>My First Page </title></head>");
