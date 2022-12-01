@@ -1,20 +1,25 @@
-const http = require("http");
-
 const express = require("express");
-const bodyParser = require("body-parser");
 
-const adminRoutes = require("./routes/admin");
-const shopRoutes = require("./routes/shop");
-
+// express app
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
+// listen for requests
+app.listen(8000);
 
-app.use("/admin", adminRoutes);
-app.use(shopRoutes);
-
-app.use((req, res, next) => {
-  res.status(404).send("<h1>Page not found </h1>");
+app.get("/", (req, res) => {
+  res.send("<p>Home page</>");
 });
 
-app.listen(8000);
+app.get("/about", (req, res) => {
+  res.send("<p>About page</>");
+});
+
+//redirect
+app.get("/about-us", (req, res) => {
+  res.redirect("/about");
+});
+
+//404 page
+app.use((req, res) => {
+  res.status(404).send("<h1>404 Page OOPS bro</h1>");
+});
