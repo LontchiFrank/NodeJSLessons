@@ -3,6 +3,10 @@ const express = require("express");
 // express app
 const app = express();
 
+//connect to mongodb
+const dbURI =
+  "mongodb+srv://<username>:<password>@cluster0.nv9au.mongodb.net/?retryWrites=true&w=majority";
+
 // listen for requests
 app.listen(8000);
 
